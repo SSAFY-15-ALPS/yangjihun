@@ -3,14 +3,10 @@ import java.util.*;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		PriorityQueue<int[]> pq = new PriorityQueue<> (
-			(a,b) -> Integer.compare(a[1], b[1])
-		);
 		Queue<int[]> q = new ArrayDeque<>();
 		
 		int N = sc.nextInt();
 		int K = sc.nextInt();
-		int[] arr = new int[100001];
 		int[] nm = new int[]{N,0};
 		int[] visited = new int[100001];
 		Arrays.fill(visited, -1);
