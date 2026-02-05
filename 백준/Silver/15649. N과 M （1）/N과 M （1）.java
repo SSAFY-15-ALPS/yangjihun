@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -6,12 +7,12 @@ public class Main {
 	static int M;
 	static boolean[] visited;
 	static int[] arr;
-	
+	static StringBuilder sb = new StringBuilder();
 	static void BT(int depth) {
 		if (depth==M) {
 			for (int i=0; i<M; i++)
-				System.out.print(arr[i]+" ");
-			System.out.println();
+				sb.append(arr[i]+ " ");
+			sb.append("\n");
 			return;
 		}
 		for (int i=0;i<N;i++) {
@@ -32,5 +33,6 @@ public class Main {
 		visited = new boolean[N];
 		arr = new int[M];
 		BT(0);
+		System.out.println(sb.toString());
 	}
 }
