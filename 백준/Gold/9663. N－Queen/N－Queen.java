@@ -1,22 +1,11 @@
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Main{
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static StringTokenizer st;
-	static int nextInt() throws Exception {
-		while (st==null || !st.hasMoreTokens()) {
-			String line = br.readLine();
-			if (line==null) return Integer.MIN_VALUE;
-			st = new StringTokenizer(line);
-		}
-		return Integer.parseInt(st.nextToken());
-	}
-	
 	static int answer = 0;
 	static int N;
 	static boolean[][] visited;
 	static int[][] arr;
+	
 	static void BT(int depth) {
 		if (depth==N) {
 			answer++;
@@ -31,6 +20,7 @@ public class Main{
 			}
 		}
 	}
+	
 	static boolean search(int i, int j) {
 		boolean check = false;
 		for (int x=0; x<N; x++) {
@@ -52,8 +42,9 @@ public class Main{
 		return true;
 	}
 	
-	public static void main(String[] args) throws Exception {
-		N = nextInt();
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
 		visited = new boolean[N][N];
 		BT(0);
 		System.out.println(answer);
