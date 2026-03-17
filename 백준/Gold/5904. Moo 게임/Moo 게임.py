@@ -3,23 +3,27 @@ import sys
 input = sys.stdin.readline()
 
 N = int(input)
-length = 3
+
+l = 3
 k = 0
-while length < N:
+while l < N:
     k += 1
-    length = length*2 + (k + 3)
+    l = l * 2 + k + 3
 
-def solve(n, length, k):
+while k >= 0:
     if k == 0:
-        return 'm' if n==1 else 'o'
-    
-    prev = (length - (k + 3)) // 2
+        sys.stdout.write('m' if N == 1 else 'o')
+        break
 
-    if n <= prev:
-        return solve(n, prev, k - 1)
-    elif n > prev + (k + 3):
-        return solve(n - prev - (k + 3), prev, k - 1)
-    return 'm' if n==prev+1 else 'o'
-    
+    p = (l - k - 3) // 2
 
-sys.stdout.write(solve(N, length, k))
+    if N <= p:
+        l = p
+        k -= 1
+    elif N > p + k + 3:
+        N -= p + k + 3
+        l = p
+        k -= 1
+    else:
+        sys.stdout.write('m' if N == p + 1 else 'o')
+        break
