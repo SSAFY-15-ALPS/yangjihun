@@ -1,4 +1,8 @@
-N = int(input())
+import sys
+
+input = sys.stdin.readline()
+
+N = int(input)
 length = 3
 k = 0
 while length < N:
@@ -18,4 +22,4 @@ def solve(n, length, k):
     return 'm' if n==prev+1 else 'o'
     
 
-print(solve(N, length, k))
+sys.stdout.write(solve(N, length, k))
